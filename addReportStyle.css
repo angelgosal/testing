@@ -661,3 +661,37 @@ img {
   height: auto;
   display: block;
 }
+
+body {
+  padding: 0;
+  align-items: flex-start;
+}
+
+.phone {
+  width: 100%;
+  max-width: 412px;
+  min-height: 100vh;
+  height: auto;
+}
+
+.upload-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.upload-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  .phone {
+    width: 100vw;
+    max-width: 100vw;
+  }
+}
