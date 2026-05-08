@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>CampusCare - Home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="homepagestyle.css">
@@ -47,27 +46,41 @@
 
         <!-- MIDDLE: SCROLLABLE -->
         <div class="scroll-content">
-           <div class="fixed-facility-section">
-                <div class="section-header-row">
-                    <div class="section-title">Fixed Facilities</div>
-                    <a href="viewreport.html" class="view-all">View All</a>
-                </div>
-                <div id="fixedContainer" class="cards-container">
-    <button class="nav-arrow prev" onclick="scrollSection('fixedContainer', -1)">‹</button>
-    
-    <!-- Wrapper to hold the image and the floating pills -->
-    <div class="image-overlay-wrapper">
-        <img src="p1.jpeg" class="fixed-photo">
-        <div class="status-overlay">
-            <span class="status-pill">7th - SL</span>
-            <span class="status-pill">Desk</span>
-            <span class="status-pill">Fixed</span>
-        </div>
-    </div
+<div class="fixed-facility-section">
 
-    <button class="nav-arrow next" onclick="scrollSection('fixedContainer', 1)">›</button>
-</div>
+    <div class="section-header-row">
+        <div class="section-title">Fixed Facilities</div>
+        <a href="viewreport.html" class="view-all">View All</a>
+    </div>
+
+    <div id="fixedContainer" class="cards-container">
+
+        <div class="fixed-card-content searchable-card"
+             data-date="2026-05-08"
+             data-floor="7th">
+
+            <div class="image-overlay-wrapper">
+
+                <img src="p1.jpeg" class="fixed-photo">
+
+                <div class="status-overlay">
+                    <span class="status-pill">7th - SL</span>
+                    <span class="status-pill">Desk</span>
+                    <span class="status-pill">Fixed</span>
+                </div>
+
             </div>
+        </div>
+
+    </div>
+
+    <button class="nav-arrow prev"
+            onclick="scrollSection('fixedContainer', -1)">‹</button>
+
+    <button class="nav-arrow next"
+            onclick="scrollSection('fixedContainer', 1)">›</button>
+
+</div>
 
             <div class="progress-section">
                 <div class="section-header-row">
