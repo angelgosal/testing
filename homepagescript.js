@@ -111,42 +111,52 @@ function globalSort(crit) {
 }
 
 function scrollSection(id, direction) {
+
   const container = document.getElementById(id);
+
   if (!container) return;
 
   const cards = Array.from(
-    container.querySelectorAll(".report-card, .fixed-card-content")
-  ).filter(card => card.style.display !== "none");
+    container.querySelectorAll(".fixed-card-content")
+  );
 
   if (cards.length === 0) return;
 
-  const currentScroll = container.scrollLeft;
+  const containerCenter =
+    container.scrollLeft + container.clientWidth / 2;
 
   let currentIndex = 0;
   let closestDistance = Infinity;
 
   cards.forEach((card, index) => {
-    const distance = Math.abs(card.offsetLeft - currentScroll);
+
+    const cardCenter =
+      card.offsetLeft + card.offsetWidth / 2;
+
+    const distance =
+      Math.abs(cardCenter - containerCenter);
+
     if (distance < closestDistance) {
+
       closestDistance = distance;
+
       currentIndex = index;
     }
   });
 
   let nextIndex = currentIndex + direction;
 
-  // If already at last card, go back to first
-  if (nextIndex >= cards.length) {
-    nextIndex = 0;
-  }
+  if (nextIndex >= cards.length) nextIndex = 0;
 
-  // If already at first card, go to last
-  if (nextIndex < 0) {
-    nextIndex = cards.length - 1;
-  }
+  if (nextIndex < 0) nextIndex = cards.length - 1;
+
+  const targetLeft =
+    cards[nextIndex].offsetLeft -
+    container.clientWidth / 2 +
+    cards[nextIndex].offsetWidth / 2;
 
   container.scrollTo({
-    left: cards[nextIndex].offsetLeft,
+    left: targetLeft,
     behavior: "smooth"
   });
 }
@@ -191,25 +201,21 @@ function loadReportsToHomepage() {
         ? report.area.split(" - ")[0]
         : "";
 
-    fixedCard.innerHTML = `
-      <button class="nav-arrow prev" onclick="scrollSection('fixedContainer', -1)">‹</button>
+fixedCard.innerHTML = `
+  <div class="image-overlay-wrapper">
+    ${
+      report.image
+      ? `<img src="${report.image}" class="fixed-photo">`
+      : `<div class="no-image">No image</div>`
+    }
 
-      <div class="image-overlay-wrapper">
-        ${
-          report.image
-          ? `<img src="${report.image}" class="fixed-photo">`
-          : `<div class="no-image">No image</div>`
-        }
-
-        <div class="status-overlay">
-          <span class="status-pill">${report.area}</span>
-          <span class="status-pill">${report.facility}</span>
-          <span class="status-pill">Fixed</span>
-        </div>
-      </div>
-
-      <button class="nav-arrow next" onclick="scrollSection('fixedContainer', 1)">›</button>
-    `;
+    <div class="status-overlay">
+      <span class="status-pill">${report.area}</span>
+      <span class="status-pill">${report.facility}</span>
+      <span class="status-pill">Fixed</span>
+    </div>
+  </div>
+`;
 
     fixedContainer.appendChild(fixedCard);
   });
