@@ -1,59 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+html,
 body {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    background-color: #1d2028;
-    font-family: 'Alexandria', sans-serif;
-    color: #1D4066;
-    padding: 20px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #1d2028;
+  font-family: 'Alexandria', sans-serif;
+  color: #1D4066;
+  overflow: hidden;
 }
 
 .app-viewport {
-    width: 412px;
-    height: 917px;
-    background: linear-gradient(#DDF5FF 5%, #EEFAFF);
-    display: flex;
-    flex-direction: column; /* Stacks header, content, nav */
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  width: 100vw;
+  max-width: 430px;
+  height: 100dvh;
+  margin: 0 auto;
+
+  background: linear-gradient(#DDF5FF 5%, #EEFAFF);
+
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  overflow: hidden;
+
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
 /* FIXED HEADER */
 .fixed-header {
-    flex: 0 0 auto;
-    padding: 20px 0 10px 0;
-    z-index: 100;
+  flex: 0 0 auto;
+  padding: 14px 12px 8px;
+  z-index: 100;
 }
 
-.logo-container { display: flex; justify-content: center; margin-bottom: 20px; }
-.main-logo { width: 350px; cursor: pointer; }
-
-.search-area { width: 380px; margin: 0 auto 15px auto; }
-.search-box {
-    display: flex;
-    align-items: center;
-    background: #EEFAFF;
-    border: 1.5px solid #1D4066;
-    border-radius: 5px;
-    padding: 0 15px;
-    height: 50px;
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
 }
-.search-box input { flex: 1; border: none; background: transparent; font-size: 18px; outline: none; }
 
-.action-btns { width: 380px; margin: 0 auto; display: flex; justify-content: space-between; position: relative; }
+.main-logo {
+  width: 90%;
+  max-width: 350px;
+  height: auto;
+  cursor: pointer;
+}
+
+.search-area {
+  width: 100%;
+  margin: 0 auto 12px auto;
+}
+
+.action-btns {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
 .btn-action {
-    width: 138px;
-    height: 38px;
-    border-radius: 5px;
-    border: 1px solid #1D4066;
-    background: #EEFAFF;
-    color: #1D4066;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  width: 138px;
+  height: 38px;
 }
 
 .sort-dropdown {
